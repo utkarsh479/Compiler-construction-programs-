@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main() {
+    int a = 10;
+    int b = 20;
+    int c = 30;
+
+    printf("Before Dead Code Elimination:\n");
+    printf("a = %d\n", a);
+    printf("b = %d\n", b);
+    printf("c = %d\n", c);
+
+    // Optimized code: unused variable c is removed
+    printf("\nAfter Dead Code Elimination:\n");
+    printf("a = %d\n", a);
+    printf("b = %d\n", b);
+
+    return 0;
+}
