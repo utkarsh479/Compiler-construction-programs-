@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char str[100];
+    int i = 0;
+
+    printf("Enter an expression: ");
+    fgets(str, sizeof(str), stdin);
+
+    printf("Tokens:\n");
+
+    while (str[i] != '\0') {
+        if (isalpha((unsigned char)str[i])) {
+            printf("Identifier: ");
+
+            while (isalnum((unsigned char)str[i])) {
+                printf("%c", str[i]);
+                i++;
+            }
+
+            printf("\n");
+        }
+        else if (isdigit((unsigned char)str[i])) {
+            printf("Number: ");
+
+            while (isdigit((unsigned char)str[i])) {
+                printf("%c", str[i]);
+                i++;
+            }
+
+            printf("\n");
+        }
+        else if (str[i] == '+' || str[i] == '-' ||
+                 str[i] == '*' || str[i] == '/' ||
+                 str[i] == '=') {
+            printf("Operator: %c\n", str[i]);
+            i++;
+        }
+        else {
+            i++;
+        }
+    }
+
+    return 0;
+}
